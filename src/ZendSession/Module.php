@@ -57,8 +57,8 @@ class Module
     public function getConfig()
     {
         return array_merge_recursive(
-            include __DIR__.'../config/service.config.php',
-            include __DIR__.'../config/session.config.php'
+            include __DIR__.'../../config/service.config.php',
+            include __DIR__.'../../config/session.config.php'
         );
     }
 
