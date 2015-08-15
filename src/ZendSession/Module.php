@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace ZendSession;
 
 use Zend\Mvc\MvcEvent;

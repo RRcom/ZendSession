@@ -4,8 +4,8 @@ return array(
         'config' => array(
             'class' => 'Zend\Session\Config\SessionConfig',
             'options' => array(
-                'name' => 'myapp',
-                'cookie_lifetime' => (60*60*24*365),
+                'name' => 'rrcomzendsession',
+                //'cookie_lifetime' => (60*60*24*365),
             ),
         ),
         'save_handler' => 'ZendSession\Session\DbSaveHandler',
