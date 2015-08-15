@@ -57,8 +57,8 @@ class Module
     public function getConfig()
     {
         return array_merge_recursive(
-            include __DIR__.'/config/service.config.php',
-            include __DIR__.'/config/session.config.php'
+            include __DIR__.'../config/service.config.php',
+            include __DIR__.'../config/session.config.php'
         );
     }
 
@@ -67,7 +67,7 @@ class Module
         return array(
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__,
                 ),
             ),
         );
