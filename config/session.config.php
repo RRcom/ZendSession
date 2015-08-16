@@ -5,6 +5,7 @@ return array(
             'class' => 'Zend\Session\Config\SessionConfig',
             'options' => array(
                 'name' => 'rrcomzendsession',
+                'gc_maxlifetime' => (60*60*24*365),
                 //'cookie_lifetime' => (60*60*24*365),
             ),
         ),
