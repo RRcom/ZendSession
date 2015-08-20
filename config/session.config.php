@@ -12,7 +12,7 @@ return array(
         'save_handler' => 'ZendSession\Session\DbSaveHandler',
         'storage' => 'Zend\Session\Storage\SessionArrayStorage',
         'validators' => array(
-            'Zend\Session\Validator\RemoteAddr',
+            //'Zend\Session\Validator\RemoteAddr',
             'Zend\Session\Validator\HttpUserAgent',
         ),
     ),

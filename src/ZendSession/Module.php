@@ -3,6 +3,7 @@ namespace ZendSession;
 
 use Zend\Mvc\MvcEvent;
 use Zend\Session\Container;
+use Zend\Session\SessionManager;
 
 /**
  * Class Module
@@ -15,7 +16,24 @@ class Module
         $session = $e->getApplication()
             ->getServiceManager()
             ->get('ZendSession\Session\SessionManager');
-        $session->start();
+        try {
+            $session->start();
+        } catch(\Exception $ex) {
+            $e->getApplication()->getEventManager()->attach(MvcEvent::EVENT_ROUTE, function(MvcEvent $e){
+                $e->stopPropagation();
+                /** @var SessionManager $session */
+                $session = $e->getApplication()
+                    ->getServiceManager()
+                    ->get('ZendSession\Session\SessionManager');
+                $session->expireSessionCookie();
+
+                $response = $e->getResponse();
+                $response->getHeaders()->addHeaderLine('Location', $e->getRequest()->getUri());
+                $response->setStatusCode(302);
+                $response->sendHeaders();
+                return $response;
+            }, -10000);
+        }
 
         $container = new Container('initialized');
         if (!isset($container->init)) {
