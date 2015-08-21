@@ -11,8 +11,10 @@ return array(
         ),
         'save_handler' => 'ZendSession\Session\DbSaveHandler',
         'storage' => 'Zend\Session\Storage\SessionArrayStorage',
+        'db_save_handler_table' => 'zf_session',
+        'auto_create_table' => 'true',
         'validators' => array(
-            //'Zend\Session\Validator\RemoteAddr',
+            'Zend\Session\Validator\RemoteAddr',
             'Zend\Session\Validator\HttpUserAgent',
         ),
     ),
